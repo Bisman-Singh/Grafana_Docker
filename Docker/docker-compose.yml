@@ -1,0 +1,15 @@
+version: "3"
+services:
+  grafana:
+    image: grafana/grafana:latest
+    container_name: grafana_docker
+    ports:
+      - "3000:3000"
+    volumes:
+      - grafana-data:/var/lib/grafana
+      - ./dashboards:/etc/grafana/dashboards
+      - ./provisioning/dashboards:/etc/grafana/provisioning/dashboards
+
+volumes:
+  grafana-data:
+    external: true
